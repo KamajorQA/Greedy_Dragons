@@ -1,0 +1,11 @@
+.socials {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-size);
+  margin-top: var(--gap-size);
+}
+
+.socials__link {
+  color: var(--bg-secondary-color);
+  font-size: 1.5rem;
+}

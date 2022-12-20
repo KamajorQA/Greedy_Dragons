@@ -1,0 +1,78 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.form__image {
+  grid-row: span 3;
+  background-image: url("../../assets/images/dragons.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form__textarea {
+  grid-row: span 2;
+  resize: none;
+  height: 100%;
+}
+
+.form__btn {
+  font-size: 14px;
+  width: 100%;
+}
+
+.form__input {
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--outline-color);
+  border-radius: 4px;
+  padding: 8px 8px;
+}
+
+.form__input:focus {
+  border: 1px solid var(--tertiary-color);
+}
+
+.form__fake-checkbox {
+  font-size: 22px;
+}
+
+.form__checkbox-wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 10px;
+}
+
+.form__checkbox {
+  appearance: none;
+  position: absolute;
+}
+
+.form__checkbox:focus ~ .form__fake-checkbox,
+.form__checkbox:focus ~ .form__label {
+  color: var(--text-secondary-color);
+}
+
+.form__checkbox:checked ~ .form__fake-checkbox,
+.form__checkbox:checked ~ .form__label {
+  color: var(--tertiary-color);
+  animation-name: pulse;
+  animation-duration: 0.8s;
+
+}
+
+.form__checkbox:checked:focus ~ .form__fake-checkbox,
+.form__checkbox:checked:focus ~ .form__label {
+  opacity: 0.6;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  5% {transform: scale(0.9);}
+  55% {transform: scale(1.1);}
+  100% {transform: scale(1);}
+}
+

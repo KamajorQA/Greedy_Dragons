@@ -1,0 +1,26 @@
+/* Применение стилей ко всему html-документу.
+Определение переменных для используемых цветов и размеров */
+
+:root {
+  --bg-main-color: #f8f7f7;
+  --bg-secondary-color: #020024;
+  --bg-overlay-color: rgba(25, 20, 20, 0.8);
+  --text-main-color: #020024;
+  --text-light-color: #f8f7f7;
+  --text-secondary-color: #7b8e98;
+  --outline-color: #cfd8dc;
+  --form-color: linear-gradient(#FFC719, #000000);
+  --accent-color: #405de6;
+  --accent-color: #405de6;
+  --primary-color: #ffcc00;
+  --secondary-color: #1db954;
+  --tertiary-color: #ce2724;
+
+  --bg-smoke-color: #ccc;
+  --bg-image-misty-forest: url("../../assets/images/Misty_Huon_Valley.jpg");
+  --bg-linear-fire-gradient: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,33,9,0.9) 35%, rgba(255,158,0,1) 100%);
+  --bg-radial-fire-gradient: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(121,33,9,0.9) 35%, rgba(255,158,0,1) 100%);
+
+  --gap-size: 10px;
+  --html-font-size: 16px;
+}

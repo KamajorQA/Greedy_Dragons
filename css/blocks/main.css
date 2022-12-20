@@ -1,0 +1,7 @@
+.main {
+  flex: 1;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: var(--bg-secondary-color);
+  background: var(--bg-linear-fire-gradient);
+}

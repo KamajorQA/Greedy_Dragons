@@ -1,0 +1,15 @@
+.header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 0 0 2px 0 var(--bg-secondary-color);
+  background: var(--bg-smoke-color);
+  background: var(--bg-image-misty-forest);
+  background-position:0% 50.5%;
+  background-size: cover;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

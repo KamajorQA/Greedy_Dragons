@@ -1,0 +1,16 @@
+.footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 0 2px 0 var(--bg-secondary-color);
+  background: var(--bg-smoke-color);
+  background: var(--bg-image-misty-forest);
+  background-position:0% 55%;
+  background-size: cover;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
