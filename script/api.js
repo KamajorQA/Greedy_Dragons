@@ -12,42 +12,42 @@ class Api {
 	this._headers = config.headers;
 	}
  	_onResponse(res) {
-    		return res.ok
-      		? res.json()
-      		: Promise.reject({ ...res, message: 'Server error'});
+    	return res.ok
+      	? res.json()
+      	: Promise.reject({ ...res, message: 'Server error'});
   	}
 	getAllDragons() {
-	fetch(`${this._url}/show`, {
+		return fetch(`${this._url}/show`, {
 		method: 'GET'
 	}).then(this._onResponse);
 	}
 	addNewDragon(data) {
-	fetch(`${this._url}/add`, {
+		return fetch(`${this._url}/add`, {
 		method: 'POST',
 		headers: this._headers, 
 		body: JSON.stringify(data),
 	}).then(this._onResponse);
 	}
 	getIDs() {
-	fetch(`${this._url}/ids/`, {
+		return fetch(`${this._url}/ids/`, {
 		method: "GET"
 	}).then(this._onResponse);
 	}
 	getDragonByID(id) {
-	fetch(`${this._url}/show/${id}`, {
+		return fetch(`${this._url}/show/${id}`, {
 		method: "GET"
 	}).then(this._onResponse);
 	}
 	updateDragon(id, data) {
-	data = {...data, id: id}; // запрет на изменение id
-	fetch(`${this._url}/update/${id}`, {
+		data = {...data, id: id}; // запрет на изменение id
+		return fetch(`${this._url}/update/${id}`, {
 		method: 'PUT',
 		body: JSON.stringify(data),
 		headers: this._headers,
 	}).then(this._onResponse);
 	}
 	deleteDragon(id) {
-	fetch(`${this._url}/delete/${id}`, {
+		return fetch(`${this._url}/delete/${id}`, {
 		method: "DELETE"
 	}).then(this._onResponse);
 	}

@@ -1,0 +1,57 @@
+.dragon-info__image {
+  display: flex;
+  align-items: center;
+}
+
+.dragon-info__image img{
+    max-width: 100%;
+    background-position: center;
+    background-size:cover;
+    border-radius: 10px;
+}
+
+.dragon-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.form__description {
+  grid-column: 1/3;
+  color:rgb(180, 155, 155);
+  /*  color: var(--tertiary-color);*/
+  border-radius: 10px;
+  background: rgba(240, 248, 255, 0.2);
+}
+
+.info_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info_wrap__label {
+  font-size: 10px;
+  opacity: 0.7;
+text-align: center;
+}
+
+.dragon-grid input {
+text-align: center;
+
+}
+
+.dragon-grid .form__checkbox-wrap {
+justify-content: center;
+}
+
+.legend {
+text-align: center;
+}
+
+.popup__edit {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 30px;
+}

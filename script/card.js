@@ -16,7 +16,7 @@ class Card {
 	  cardIgnite.remove() // удаление огонька при отсутствии лайка (признания господства)
     };
 
-    cardImage.src = this._data.img_link;
+    cardImage.src = this._data.image;
     cardTitle.textContent = this._data.name;
     return this.element;
   }

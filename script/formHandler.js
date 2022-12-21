@@ -1,25 +1,14 @@
-// находим в DOM-дереве форму добавления дракона по ID
 const form = document.querySelector("#popup-form-item");
-
-// isCheckboxOrRadio - вспомогательная функция для проверки типов
-// элементов на чекбокс и радио-кнопку. Нужна, чтобы при переборе полей
-// полученной формы в цикле forEach (куда залетает каждый элемент формы)
-// в случае если это чекбокс или радиокнопка в 'name' записывалось не
-// значение 'value' (как у прочих полей, у которых 'value' при отправке
-// содержит введенные данные; в отличие от них для чекбокса и радио
-// там всегда будет значение 'on'), а булевое значение свойства 'checked')
 
 function isCheckboxOrRadio(type) {
     if (['checkbox', 'radio'].includes(type))
     return true;
 };
 
-// функция-обработчик формы
-
 function retrieveFormValue(event) {
     event.preventDefault();
 
-    const fields = document.querySelectorAll('input, select, textarea');
+    const fields = form.querySelectorAll('input, select, textarea');
     const values = {}; // в этот объект запишутся все полученные данные из формы
 
     fields.forEach(field => {
@@ -30,11 +19,34 @@ function retrieveFormValue(event) {
     const parentCardContainer = document.querySelector(".cards"); // находим родительский контейнер
 
     const cardInstance = new Card(values); // создаем новый экземпляр класса Card передав полученный объект value с данными из формы
-    const newCardElement = cardInstance.getElement(); // вызываем метод класса Card, который клонирует шаблон с id #card-template и записывает туда значения в соответствующие теги значения name и img_link
-    parentCardContainer.append(newCardElement);; // добавляем заполненную карточку в конец родительской обертки карточек
+    const newCardElement = cardInstance.getElement(); // вызываем метод класса Card, который клонирует шаблон с id #card-template и записывает туда значения в соответствующие теги значения name и image
+    parentCardContainer.append(newCardElement); // добавляем заполненную карточку в конец родительской обертки карточек
 
     document.querySelector(".popup-add-items").classList.remove("popup_active"); // закрываем форму
     form.reset(); // сбрасываем введенные данные в форму
+
+    api.addNewDragon(values) // отправляем на сервер POST запрос на добавление дракона в БД
 }
 
 form.addEventListener("submit", retrieveFormValue);
+
+// обработка логина (создание куки с данными введенного email'а)
+const formLogin = document.querySelector("#popup-form-login");
+
+function retrieveLoginData(event) {
+    event.preventDefault();
+
+    const fields = formLogin.querySelectorAll('input, select, textarea');
+    const values = {};
+    fields.forEach(field => {
+        const {name, value, type, checked} = field;
+        values[name] = isCheckboxOrRadio(type) ? checked : value; // проверка чекбокса оставлена на будущее, если будет добавлена, например, галка о принятии terms of use или подобное
+    });
+
+    document.cookie = `email=${values.email}; samesite=strict; secure`
+
+    document.querySelector('.popup-login').classList.remove("popup_active");
+    formLogin.reset();
+}
+
+formLogin.addEventListener("submit", retrieveLoginData);
