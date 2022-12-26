@@ -2,14 +2,8 @@
 <html lang="zxx">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      http-equiv="X-UA-Compatible"
-      content="IE=edge"
-    />
-      <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://kit.fontawesome.com/5a8e760331.js"
       crossorigin="anonymous"
@@ -32,32 +26,36 @@
     <main class="container main">
       <section class="cards">
         <h2 class="visually-hidden">
-          <span class='scroll'><i class="fa-solid fa-scroll"></i></span>
+          <span class="scroll"><i class="fa-solid fa-scroll"></i></span>
           Список драконов
         </h2>
       </section>
     </main>
     <footer class="footer">
       <div class="container footer__container">
-        <span class="copyright">
-          Made by Kamajor © 2022
-        </span>
+        <span class="copyright"> Made by Kamajor © 2022 </span>
         <div class="socials">
-          <a class="socials__link" href="https://github.com/KamajorQA"
+          <a
+            class="socials__link"
+            href="https://github.com/KamajorQA"
+            target="_blank"
             ><i class="fa-brands fa-github socials__icon"></i
           ></a>
-          <a class="socials__link" href="https://stepik.org/users/453801294"
+          <a
+            class="socials__link"
+            href="https://stepik.org/users/453801294"
+            target="_blank"
             ><i class="fa-solid fa-s"></i
           ></a>
-          <a class="socials__link" href="https://t.me/KamajorQA"
+          <a class="socials__link" href="https://t.me/KamajorQA" target="_blank"
             ><i class="fa-brands fa-telegram socials__icon"></i
           ></a>
         </div>
         <span class="copyright inspired">
-        Inspired by
-        <span class="DnD-icons">
-          <i class="fa-brands fa-wizards-of-the-coast"></i>
-        </span>
+          Inspired by
+          <span class="DnD-icons">
+            <i class="fa-brands fa-wizards-of-the-coast"></i>
+          </span>
         </span>
       </div>
     </footer>
@@ -88,84 +86,201 @@
         <h2>Добавить дракона</h2>
         <form class="form" id="popup-form-item">
           <div class="form__image"></div>
-          <input type="number" class="form__input" name="id"
-          min="1" required placeholder="id">
-          <input type="number" class="form__input" name="age"
-          placeholder="Возраст">
-          <input type="text" class="form__input" name="name"
-          required placeholder="Имя">
-          <input type="number" class="form__input" name="rate"
-          placeholder="Рейтинг (0-10)" min="0" max="10">
-          <textarea name="description" class="form__input form__textarea"
-          placeholder="Описание"></textarea>
+          <input
+            type="number"
+            class="form__input"
+            name="id"
+            min="1"
+            required
+            placeholder="id"
+          />
+          <input
+            type="number"
+            class="form__input"
+            name="age"
+            placeholder="Возраст"
+          />
+          <input
+            type="text"
+            class="form__input"
+            name="name"
+            required
+            placeholder="Имя"
+          />
+          <input
+            type="number"
+            class="form__input"
+            name="rate"
+            placeholder="Рейтинг (0-10)"
+            min="0"
+            max="10"
+          />
+          <textarea
+            name="description"
+            class="form__input form__textarea"
+            placeholder="Описание"
+          ></textarea>
           <label class="form__checkbox-wrap">
-            <input type="checkbox" name="favorite" class="form__checkbox"
-            placeholder="">
+            <input
+              type="checkbox"
+              name="favorite"
+              class="form__checkbox"
+              placeholder=""
+            />
             <span class="form__label">Sovereign</span>
             <span class="form__fake-checkbox">
               <i class="fa-regular fa-circle-check"></i>
             </span>
           </label>
-          <input type="url" class="form__input form__input_image"
-          name="image" placeholder="Ссылка на изображение">
-          <button type="submit" class="form__btn btn">
-            Добавить дракона
-          </button>
+          <input
+            type="url"
+            class="form__input form__input_image"
+            name="image"
+            placeholder="Ссылка на изображение"
+          />
+          <button type="submit" class="form__btn btn">Добавить дракона</button>
         </form>
       </div>
     </div>
     <div class="popup popup-login">
-      <div class="popup__container" >
-          <button class="popup__close btn"><i class="fa-solid fa-xmark"></i></button>
-          <h2>Авторизация</h2>
-          <form class="form" id="popup-form-login">
-              <input type="email" class="form__input" name="email" required placeholder="email">
-              <input type="password" class="form__input" name="password" placeholder="password">
-              <button type="submit" class="form__btn btn">Войти</button>
-          </form>
+      <div class="popup__container">
+        <button class="popup__close btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2>Авторизация</h2>
+        <form class="form" id="popup-form-login">
+          <input
+            type="email"
+            class="form__input"
+            name="email"
+            required
+            placeholder="email"
+          />
+          <input
+            type="password"
+            class="form__input"
+            name="password"
+            placeholder="password"
+          />
+          <button type="submit" class="form__btn btn">Войти</button>
+        </form>
       </div>
     </div>
     <div class="popup popup-dragon-info">
       <div class="popup__container">
-          <button class="popup__close btn">
+        <button class="popup__close btn">
           <i class="fa-solid fa-xmark"></i>
         </button>
-          <button class="popup__edit btn">
+        <button class="popup__edit btn">
           <i class="fa-solid fa-pencil"></i>
         </button>
         <h2 class="legend">Легенда жадного дракона</h2>
         <form class="form dragon-grid" id="popup-form-dragon">
-          <div class="dragon-info__image"><img src="https://5e.tools/img/bestiary/MM/Gold%20Dragon.jpg" alt="fabolous draco image" alt="fabolous draco image"></div>
-          <div class='info_wrap'>
-          <input type="number" class="form__input" name="id"
-          min="1" required placeholder="id">
-          <input type="url" class="form__input form__input_image"
-          name="img_link" placeholder="Ссылка на изображение">
-	  <label for="dragonname" class="info_wrap__label"> Имя </label>
-          <input type="text" class="form__input" name="name" id="dragonname"
-          required placeholder="Имя" value="Ancient Gold Dragon">
-	  <label for="dragonage"class="info_wrap__label"> Возраст </label>
-          <input type="number" class="form__input" name="age" id="dragonage"
-          placeholder="Возраст" value="4815">
-	  <label for="dragonrate" class="info_wrap__label"> Опасность дракона </label>
-          <input type="number" class="form__input" name="rate" id="dragonrate"
-          placeholder="Рейтинг (0-10)" min="0" max="10" value="8">
-          <label class="form__checkbox-wrap">
-            <input type="checkbox" name="favorite" class="form__checkbox"
-            placeholder="">
-            <span class="form__label">Sovereign</span>
-            <span class="form__fake-checkbox">
-              <i class="fa-regular fa-circle-check"></i>
-            </span>
-          </label>
-	  <label for="dragondescription" class="info_wrap__label"> Описание дракона </label>
-          <textarea name="description" id="dragondescription" class="form__input form__textarea"
-          placeholder="Описание">Lawful good. The most powerful and majestic of the metallic dragons, gold dragons are dedicated foes of evil. A gold dragon has a sagacious face anointed with flexible spines that resemble whiskers. Its horns sweep back from its nose and brow, echoing twin frills that adorn its long neck. A gold dragon's sail-like wings start at its shoulders and trace down to the tip of its tail, letting it fly with a distinctive rippling motion as if swimming through the air. A gold dragon wyrmling has scales of dark yellow with metallic flecks. Those flecks grow larger as the dragon matures. As a gold dragon ages, its pupils fade until its eyes resemble pools of molten gold.</textarea>
-          <button type="submit" class="form__btn btn update_btn">
-            Обновить дракона
-          </button>
+          <div class="dragon-info__image">
+            <img
+              id="dragon-info_image"
+              src="https://5e.tools/img/bestiary/MM/Gold%20Dragon.jpg"
+              alt="fabolous draco image"
+            />
           </div>
-          <div class="form__description">Lawful good. The most powerful and majestic of the metallic dragons, gold dragons are dedicated foes of evil. A gold dragon has a sagacious face anointed with flexible spines that resemble whiskers. Its horns sweep back from its nose and brow, echoing twin frills that adorn its long neck. A gold dragon's sail-like wings start at its shoulders and trace down to the tip of its tail, letting it fly with a distinctive rippling motion as if swimming through the air. A gold dragon wyrmling has scales of dark yellow with metallic flecks. Those flecks grow larger as the dragon matures. As a gold dragon ages, its pupils fade until its eyes resemble pools of molten gold.
+          <div class="info_wrap">
+            <input
+              type="number"
+              class="form__input"
+              name="id"
+              min="1"
+              required
+              placeholder="id"
+              id="dragon-info_id"
+              value=""
+            />
+            <input
+              type="url"
+              class="form__input form__input_image"
+              id="dragon-info_img_link"
+              name="img_link"
+              placeholder="Ссылка на изображение"
+            />
+            <label for="dragon-info_name" class="info_wrap__label"> Имя </label>
+            <input
+              type="text"
+              class="form__input"
+              name="name"
+              id="dragon-info_name"
+              required
+              placeholder="Имя"
+              value="Ancient Gold Dragon"
+            />
+            <label for="dragon-info_age" class="info_wrap__label">
+              Возраст
+            </label>
+            <input
+              type="number"
+              class="form__input"
+              name="age"
+              id="dragon-info_age"
+              placeholder="Возраст"
+              value="4815"
+            />
+            <label for="dragon-info_rate" class="info_wrap__label">
+              Опасность дракона
+            </label>
+            <input
+              type="number"
+              class="form__input"
+              name="rate"
+              id="dragon-info_rate"
+              placeholder="Рейтинг (0-10)"
+              min="0"
+              max="10"
+              value="8"
+            />
+            <label class="form__checkbox-wrap">
+              <input
+                type="checkbox"
+                name="favorite"
+                id="dragon-info_favorite"
+                class="form__checkbox"
+                placeholder=""
+              />
+              <span class="form__label">Sovereign</span>
+              <span class="form__fake-checkbox">
+                <i class="fa-regular fa-circle-check"></i>
+              </span>
+            </label>
+            <label
+              for="dragon-info_description-textarea"
+              class="info_wrap__label"
+            >
+              Описание дракона
+            </label>
+            <textarea
+              name="description"
+              id="dragon-info_description-textarea"
+              class="form__input form__textarea"
+              placeholder="Описание"
+            >
+Lawful good. The most powerful and majestic of the metallic dragons, gold dragons are dedicated foes of evil. A gold dragon has a sagacious face anointed with flexible spines that resemble whiskers. Its horns sweep back from its nose and brow, echoing twin frills that adorn its long neck. A gold dragon's sail-like wings start at its shoulders and trace down to the tip of its tail, letting it fly with a distinctive rippling motion as if swimming through the air. A gold dragon wyrmling has scales of dark yellow with metallic flecks. Those flecks grow larger as the dragon matures. As a gold dragon ages, its pupils fade until its eyes resemble pools of molten gold.</textarea
+            >
+            <button
+              type="submit"
+              class="form__btn btn update_btn"
+              id="dragon-info_update"
+            >
+              Обновить дракона
+            </button>
+          </div>
+          <div class="form__description" id="dragon-info_desc">
+            Lawful good. The most powerful and majestic of the metallic dragons,
+            gold dragons are dedicated foes of evil. A gold dragon has a
+            sagacious face anointed with flexible spines that resemble whiskers.
+            Its horns sweep back from its nose and brow, echoing twin frills
+            that adorn its long neck. A gold dragon's sail-like wings start at
+            its shoulders and trace down to the tip of its tail, letting it fly
+            with a distinctive rippling motion as if swimming through the air. A
+            gold dragon wyrmling has scales of dark yellow with metallic flecks.
+            Those flecks grow larger as the dragon matures. As a gold dragon
+            ages, its pupils fade until its eyes resemble pools of molten gold.
           </div>
         </form>
       </div>
@@ -175,6 +290,7 @@
     <script src="./script/card.js" defer></script>
     <script src="./script/popup.js" defer></script>
     <script src="./script/formHandler.js" defer></script>
+    <script src="./script/infowindow.js" defer></script>
     <script src="./script/index.js" defer></script>
   </body>
 </html>
