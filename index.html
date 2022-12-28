@@ -168,7 +168,7 @@
     </div>
     <div class="popup popup-dragon-info">
       <div class="popup__container">
-        <button class="popup__close btn">
+        <button class="popup__close btn popup-dragon-info__close">
           <i class="fa-solid fa-xmark"></i>
         </button>
         <button class="popup__edit btn">
@@ -184,22 +184,38 @@
             />
           </div>
           <div class="info_wrap">
+            <label
+              for="dragon-info_id"
+              class="info_wrap__label hidden_label"
+              id="dragon-info_id-label"
+            >
+              id
+            </label>
             <input
-              type="number"
-              class="form__input"
+              class="form__input dragon-info__input_hidden"
               name="id"
               min="1"
               required
               placeholder="id"
               id="dragon-info_id"
               value=""
+              disabled
+              readonly
             />
+            <label
+              for="dragon-info_img_link"
+              class="info_wrap__label hidden_label"
+              id="dragon-info_img_link-label"
+            >
+              Ссылка на изображение
+            </label>
             <input
               type="url"
-              class="form__input form__input_image"
+              class="form__input form__input_image dragon-info__input_hidden"
               id="dragon-info_img_link"
-              name="img_link"
+              name="image"
               placeholder="Ссылка на изображение"
+              disabled
             />
             <label for="dragon-info_name" class="info_wrap__label"> Имя </label>
             <input
@@ -210,6 +226,7 @@
               required
               placeholder="Имя"
               value="Ancient Gold Dragon"
+              disabled
             />
             <label for="dragon-info_age" class="info_wrap__label">
               Возраст
@@ -221,6 +238,7 @@
               id="dragon-info_age"
               placeholder="Возраст"
               value="4815"
+              disabled
             />
             <label for="dragon-info_rate" class="info_wrap__label">
               Опасность дракона
@@ -234,6 +252,7 @@
               min="0"
               max="10"
               value="8"
+              disabled
             />
             <label class="form__checkbox-wrap">
               <input
@@ -242,6 +261,7 @@
                 id="dragon-info_favorite"
                 class="form__checkbox"
                 placeholder=""
+                disabled
               />
               <span class="form__label">Sovereign</span>
               <span class="form__fake-checkbox">
@@ -250,24 +270,32 @@
             </label>
             <label
               for="dragon-info_description-textarea"
-              class="info_wrap__label"
+              id="dragon-info_description-label"
+              class="info_wrap__label dragon-info__input_hidden"
             >
               Описание дракона
             </label>
             <textarea
               name="description"
               id="dragon-info_description-textarea"
-              class="form__input form__textarea"
+              class="form__input form__textarea dragon-info__input_hidden"
               placeholder="Описание"
             >
 Lawful good. The most powerful and majestic of the metallic dragons, gold dragons are dedicated foes of evil. A gold dragon has a sagacious face anointed with flexible spines that resemble whiskers. Its horns sweep back from its nose and brow, echoing twin frills that adorn its long neck. A gold dragon's sail-like wings start at its shoulders and trace down to the tip of its tail, letting it fly with a distinctive rippling motion as if swimming through the air. A gold dragon wyrmling has scales of dark yellow with metallic flecks. Those flecks grow larger as the dragon matures. As a gold dragon ages, its pupils fade until its eyes resemble pools of molten gold.</textarea
             >
             <button
               type="submit"
-              class="form__btn btn update_btn"
+              class="form__btn btn update_btn dragon-info__input_hidden"
               id="dragon-info_update"
             >
               Обновить дракона
+            </button>
+            <button
+              type="submit"
+              class="form__btn btn delete_btn dragon-info__input_hidden"
+              id="dragon-info_delete"
+            >
+              Удалить дракона
             </button>
           </div>
           <div class="form__description" id="dragon-info_desc">

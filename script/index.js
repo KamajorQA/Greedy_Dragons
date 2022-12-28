@@ -33,6 +33,7 @@ document.addEventListener("keydown", (e) => {
   if (e.code === "Escape") popupAddDragon.close();
   if (e.code === "Escape") popupLogin.close();
   if (e.code === "Escape") dragonInfoShow.close();
+  if (e.code === "Escape") dragonInfoEditHide(); // сокрытие допполей/кнопок инфоокна при редактировании
 });
 
 btnOpenPopupForm.addEventListener("click", () => {

@@ -19,6 +19,7 @@ function retrieveFormValue(event) {
 
   const cardInstance = new Card(values); // создаем новый экземпляр класса Card передав полученный объект value с данными из формы
   const newCardElement = cardInstance.getElement(); // вызываем метод класса Card, который клонирует шаблон с id #card-template и записывает туда значения в соответствующие теги значения name и image
+  newCardElement.setAttribute("id", `${values.id}`); // сразу добавляем id вновь созданной карточке
   parentCardContainer.append(newCardElement); // добавляем заполненную карточку в конец родительской обертки карточек
 
   document.querySelector(".popup-add-items").classList.remove("popup_active"); // закрываем форму
