@@ -7,6 +7,11 @@
     <script
       src="https://kit.fontawesome.com/5a8e760331.js"
       crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"
+      defer
     ></script>
     <link rel="stylesheet" href="./css/index.css" />
     <title>Greedy Dragons</title>
@@ -66,9 +71,7 @@
           alt="Dragon kin"
           class="card__image"
         />
-        <a href="#" class="card__link">
-          <h3 class="card__name">Dragon</h3>
-        </a>
+        <h3 class="card__name">Dragon</h3>
         <button
           type="button"
           class="card__like"
@@ -142,7 +145,7 @@
         </form>
       </div>
     </div>
-    <div class="popup popup-login">
+    <div class="popup popup-login popup_active">
       <div class="popup__container">
         <button class="popup__close btn">
           <i class="fa-solid fa-xmark"></i>

@@ -42,3 +42,10 @@ btnOpenPopupForm.addEventListener("click", () => {
 
 const dragonInfoShow = new Popup("popup-dragon-info");
 dragonInfoShow.setEventListener();
+
+const isAuth = Cookies.get("email"); // Установка значения полученной при авторизации куки в константу isAuth для дальнейшей проверки
+if (!!isAuth) {
+  // проверка наличия куки авторизации, если пользователь ранее авторизовался, то форма авторизации закрывается, кнопка логина скрывается
+  popupLogin.close();
+  btnOpenPopupLogin.classList.add("visually-hidden");
+}

@@ -53,10 +53,13 @@ function retrieveLoginData(event) {
     values[name] = isCheckboxOrRadio(type) ? checked : value; // проверка чекбокса оставлена на будущее, если будет добавлена, например, галка о принятии terms of use или подобное
   });
 
-  document.cookie = `email=${values.email}; samesite=strict; secure`;
+  //  document.cookie = `email=${values.email}; samesite=strict; secure`; // обычное создание куки
+  Cookies.set("email", `email=${values.email}`, { expires: 1 }); // создание куки через библиотеку js-cookie со сроком действия 1 день.
 
   document.querySelector(".popup-login").classList.remove("popup_active");
   formLogin.reset();
+  btnOpenPopupLogin.classList.add("visually-hidden"); // скрываем кнопку логина после авторизации
+  popupLogin.close();
 }
 
 formLogin.addEventListener("submit", retrieveLoginData);

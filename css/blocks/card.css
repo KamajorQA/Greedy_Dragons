@@ -4,6 +4,9 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card__image {
@@ -13,18 +16,10 @@
   object-fit: cover;
 }
 
-.card__link {
-  position: absolute;
-  z-index: 2;
-  text-decoration: none;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .card__name {
   font-size: 1.1rem;
   font-weight: normal;
+  position: absolute;
 }
 
 .card__name:hover:after {

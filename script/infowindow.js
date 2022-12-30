@@ -135,7 +135,7 @@ const updateDragonInfo = function (event) {
 };
 
 // на кнопку обновления информации в инфо-карточке вешаем обработчик сбора данных и отправки на сервер
-dInfoUpdBtn.addEventListener("click", (e) => updateDragonInfo(e));
+updateForm.addEventListener("submit", (e) => updateDragonInfo(e));
 
 // функция-обработчик формы редактирования инфо-карточки, сбора значений input-полей и обновления дракона в БД
 const deleteDragonInfo = function (event) {
