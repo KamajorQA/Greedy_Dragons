@@ -1,65 +1,68 @@
+import { dragons } from "./dragons.js"; // импорт массива dragons для первичной однократной инициализации БД
+
 const CONFIG_API = {
-	url: 'https://cats.petiteweb.dev/api/single/greedy_dragons',
-	headers: {
-	Accept: 'application/json',
-	'Content-Type': 'application/json',
-	},
+  url: "https://cats.petiteweb.dev/api/single/greedy_dragons",
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
 };
 
 class Api {
-	constructor(config) {
-	this._url = config.url;
-	this._headers = config.headers;
-	}
- 	_onResponse(res) {
-    	return res.ok
-      	? res.json()
-      	: Promise.reject({ ...res, message: 'Server error'});
-  	}
-	getAllDragons() {
-		return fetch(`${this._url}/show`, {
-		method: 'GET'
-	}).then(this._onResponse);
-	}
-	addNewDragon(data) {
-		return fetch(`${this._url}/add`, {
-		method: 'POST',
-		headers: this._headers, 
-		body: JSON.stringify(data),
-	}).then(this._onResponse);
-	}
-	getIDs() {
-		return fetch(`${this._url}/ids/`, {
-		method: "GET"
-	}).then(this._onResponse);
-	}
-	getDragonByID(id) {
-		return fetch(`${this._url}/show/${id}`, {
-		method: "GET"
-	}).then(this._onResponse);
-	}
-	updateDragon(id, data) {
-		data = {...data, id: id}; // запрет на изменение id
-		return fetch(`${this._url}/update/${id}`, {
-		method: 'PUT',
-		body: JSON.stringify(data),
-		headers: this._headers,
-	}).then(this._onResponse);
-	}
-	deleteDragon(id) {
-		return fetch(`${this._url}/delete/${id}`, {
-		method: "DELETE"
-	}).then(this._onResponse);
-	}
+  constructor(config) {
+    this._url = config.url;
+    this._headers = config.headers;
+  }
+  _onResponse(res) {
+    return res.ok
+      ? res.json()
+      : Promise.reject({ ...res, message: "Server error" });
+  }
+  getAllDragons() {
+    return fetch(`${this._url}/show`, {
+      method: "GET",
+    }).then(this._onResponse);
+  }
+  addNewDragon(data) {
+    return fetch(`${this._url}/add`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify(data),
+    }).then(this._onResponse);
+  }
+  getIDs() {
+    return fetch(`${this._url}/ids/`, {
+      method: "GET",
+    }).then(this._onResponse);
+  }
+  getDragonByID(id) {
+    return fetch(`${this._url}/show/${id}`, {
+      method: "GET",
+    }).then(this._onResponse);
+  }
+  updateDragon(id, data) {
+    data = { ...data, id: id }; // запрет на изменение id
+    return fetch(`${this._url}/update/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: this._headers,
+    }).then(this._onResponse);
+  }
+  deleteDragon(id) {
+    return fetch(`${this._url}/delete/${id}`, {
+      method: "DELETE",
+    }).then(this._onResponse);
+  }
 }
 
 const api = new Api(CONFIG_API);
+
+export { api };
 
 // первичная инициализация БД с созданием каждой записи из массива dragons. Выполняется 1 раз.
 //dragons.forEach(function(element) {
 //	api.addNewDragon(element);
 //})
-
 
 // проверка всех CRUD функций
 // api.addNewDragon({id: 53217, name: 'Nibbler', age: 1000});
@@ -69,7 +72,6 @@ const api = new Api(CONFIG_API);
 // api.getAllDragons();
 // api.deleteDragon(53217);
 // api.getAllDragons();
-
 
 // инфо из Swagger'а (документация по используемому API):
 // Адрес API

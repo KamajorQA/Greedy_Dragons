@@ -20,3 +20,5 @@ class Popup {
     });
   }
 }
+
+export { Popup };

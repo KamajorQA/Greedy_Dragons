@@ -1,3 +1,7 @@
+import { isCheckboxOrRadio } from "./formHandler.js";
+import { api } from "./api.js";
+import { dragonInfoShow } from "./index.js";
+
 // получаем конкретные поля/лейблы/кнопки
 
 const dInfoImage = document.getElementById("dragon-info_image");
@@ -20,7 +24,7 @@ const dInfoDescriptionLabel = document.getElementById(
 const dInfoUpdBtn = document.getElementById("dragon-info_update");
 const dInfoDelBtn = document.getElementById("dragon-info_delete");
 
-// функция для заполнения инфоокна данными получаемыми из резолва fetch-запроса на получение id по клику на карточку:
+// функция для заполнения инфоокна данными получаемыми из резолва fetch-запроса или из текущей даты в localStorage по клику на карточку:
 const dragonInfoFill = function (resolve) {
   dInfoImage.src = resolve.image;
   dInfoId.value = resolve.id;
@@ -128,6 +132,15 @@ const updateDragonInfo = function (event) {
     }
   }
 
+  // обновляем информацию о драконе в локальном хранилище
+  let drawDragons = JSON.parse(localStorage.getItem("dragonsArray")); // получаем в переменную распарсенный массив исходных драконов из localStorage
+  let updatedDragons = drawDragons.map((el) => {
+    if (el.id == values.id) {
+      return { ...values, id: el.id }; // id перезаписывается, чтобы исключить изменение числового типа на строковый, содержащийся в values
+    } else return el;
+  });
+  localStorage.setItem("dragonsArray", JSON.stringify(updatedDragons)); // перезаписываем объект localStorage с учетом внесенных изменений
+
   api.updateDragon(values.id, values); // отправляем на сервер PUT запрос на обновление дракона в БД
 
   dragonInfoShow.close(); // закрываем карточку по окончании редактирования
@@ -137,7 +150,7 @@ const updateDragonInfo = function (event) {
 // на кнопку обновления информации в инфо-карточке вешаем обработчик сбора данных и отправки на сервер
 updateForm.addEventListener("submit", (e) => updateDragonInfo(e));
 
-// функция-обработчик формы редактирования инфо-карточки, сбора значений input-полей и обновления дракона в БД
+// функция-обработчик формы редактирования инфо-карточки, сбора значений input-полей и удаления дракона из БД
 const deleteDragonInfo = function (event) {
   event.preventDefault();
   const fields = updateForm.querySelectorAll("input, select, textarea"); // отсев интерактивных тегов в форме обновления инфо-карточки
@@ -148,6 +161,17 @@ const deleteDragonInfo = function (event) {
   });
   const currentCard = document.getElementById(`${values.id}`); // находим на странице связанную карточку по id
   currentCard.remove(); // удаляем текущую карточку из DOM дерева
+
+  // обновляем массив драконов в localStorage (удаляем из него удаляемый элемент)
+  let drawDragons = JSON.parse(localStorage.getItem("dragonsArray")); // получаем в переменную распарсенный массив исходных драконов из localStorage
+  let deletedDragon = drawDragons.filter((el) => {
+    // фильтруем массив по условию несовпадения id с удаляемым элементом и возвращаем новый массив из значений соответствующим условию
+    if (el.id != values.id) {
+      return el;
+    }
+  });
+  localStorage.setItem("dragonsArray", JSON.stringify(deletedDragon)); // перезаписываем объект localStorage с учетом внесенных изменений (удаления элемента)
+
   api.deleteDragon(values.id); // отправляем на сервер DELETE запрос
 
   dragonInfoShow.close();
@@ -156,3 +180,5 @@ const deleteDragonInfo = function (event) {
 
 // на кнопку удаления дракона в инфое-окне вешаем обработчик удаления
 dInfoDelBtn.addEventListener("click", (e) => deleteDragonInfo(e));
+
+export { dragonInfoFill, dragonInfoEditHide };

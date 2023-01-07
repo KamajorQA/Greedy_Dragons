@@ -1,3 +1,8 @@
+import { btnOpenPopupLogin, popupLogin, dragonInfoShow } from "./index.js";
+import { Card } from "./card.js";
+import { api } from "./api.js";
+import { dragonInfoFill } from "./infowindow.js";
+
 const form = document.querySelector("#popup-form-item");
 
 function isCheckboxOrRadio(type) {
@@ -32,6 +37,11 @@ function retrieveFormValue(event) {
 
   parentCardContainer.append(newCardElement); // добавляем заполненную карточку в конец родительской обертки карточек
 
+  // обновляем массив драконов в localStorage (добавляем новый элемент)
+  let drawDragons = JSON.parse(localStorage.getItem("dragonsArray")); // получаем в переменную распарсенный массив исходных драконов из localStorage
+  drawDragons.push(values); // добавляем в конец массива объект со вновь созданным драконом
+  localStorage.setItem("dragonsArray", JSON.stringify(drawDragons)); // перезаписываем объект localStorage с учетом внесенных изменений (добавления элемента)
+
   document.querySelector(".popup-add-items").classList.remove("popup_active"); // закрываем форму
   form.reset(); // сбрасываем введенные данные в форму
 
@@ -63,3 +73,6 @@ function retrieveLoginData(event) {
 }
 
 formLogin.addEventListener("submit", retrieveLoginData);
+
+export { isCheckboxOrRadio };
+export { form, formLogin };
